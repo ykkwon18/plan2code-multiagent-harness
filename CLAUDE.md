@@ -79,7 +79,7 @@ node <MJS> cancel <job-id>
 1. plan 초안 작성 후 입력 패킷(`r1_packet.md`) 구성 → `docs/plan-task/review/<task-id>/`
 2. codex 리뷰어 3~4명 병렬 spawn (`task --background --effort high`). 루브릭: 의도 무결성 / 실행 가능성 / 수식 정합성 / privilege·leakage / 검증 가능성 / 운영 비용
 3. 결과 회수 → moderator 종합(`rN_moderator.md`): 합의 이슈 반영, 소수의견은 원문 재검증 후 채택 여부 결정 (다수결 금지)
-4. plan 수정 → Round 2 동일 루프. critical/high unresolved 남으면 Round 3까지 허용
+4. plan 수정 → Round 2 동일 루프. critical/high unresolved 남으면 Round 3까지 허용. **라운드별 packet·리뷰·moderator·이슈 목록은 `review/` 폴더에만 남기고, plan 본문에는 반영된 결정·스펙만 넣는다. 필요하면 review 파일 경로 한 줄만 링크 — 라운드 이슈 트래커를 plan에 복제 금지.**
 5. **GO/NO-GO gate**: critical 0개 + high 모두 해결/봉합 + acceptance 기준 명시 → GO. 아니면 NO-GO (사용자 보고)
 6. **GO 시 변경 성격 판정 → 구현 착수 전 분기**:
    - **Semantic** (수식·아키텍처·원안 문서 해석이 결과를 바꿀 수 있음): 최종 plan 요약을 사용자에게 제시 + 명시적 승인 요청 → 동의 후 구현 시작
