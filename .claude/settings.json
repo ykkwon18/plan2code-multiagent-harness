@@ -1,0 +1,50 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.venv/bin/python $CLAUDE_PROJECT_DIR/docs/scripts/hooks/warn_session_doc_trace.py"
+          },
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.venv/bin/python $CLAUDE_PROJECT_DIR/docs/scripts/hooks/warn_codex_review.py"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.venv/bin/python $CLAUDE_PROJECT_DIR/docs/scripts/hooks/warn_manual_git_mv.py"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.venv/bin/python $CLAUDE_PROJECT_DIR/docs/scripts/hooks/warn_files_touched_edit.py"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.venv/bin/python $CLAUDE_PROJECT_DIR/docs/scripts/hooks/warn_missing_task_tag.py"
+          }
+        ]
+      }
+    ]
+  }
+}
